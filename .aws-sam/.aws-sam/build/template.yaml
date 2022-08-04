@@ -1,0 +1,9 @@
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 900
+      MemorySize: 2048
+      Handler: org.lambda.service.EC2CheckList
+      CodeUri: Function
+      Runtime: java8.al2
