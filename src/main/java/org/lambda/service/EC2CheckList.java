@@ -133,7 +133,7 @@ public class EC2CheckList implements RequestHandler<Request, List<Response>> {
                 .build();
         String roleSessionName = "MsOpsAssumeRoleSession";
         String accountId = request.getAccountId();
-        String roleArn = "arn:aws:iam::" + accountId + ":role/SwayamParth"; //msopsstsrole
+        String roleArn = "**** IAM ROLE" + accountId + "********** ROLE"; //msopsstsrole
         AssumeRoleResponse assume_role_object = assumeGivenRole(stsClient, roleArn, roleSessionName);
         Clients clients = createClients(assume_role_object);
         formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -260,10 +260,10 @@ public class EC2CheckList implements RequestHandler<Request, List<Response>> {
         String json = new Gson().toJson(control);
         String reportName;
         if (S3_WEB_REPORT_NAME_DETAILS)
-            reportName = scanId + "-EC2_REPORT" + ".json";
+            reportName = scanId + "****REPORT NAME***" + ".json";
         else
             reportName = "EC2_REPORT.json";
-        String S3_key = "Swayam/Compliance/EC2/" + accountNumber + "/" + DEFAULT_REGION + '/' + reportName;
+        String S3_key = "******S3 KEY*****" + accountNumber + "/" + DEFAULT_REGION + '/' + reportName;
         try {
             Path tempPath = Files.createTempFile(null, null);
             Files.write(tempPath, json.getBytes(StandardCharsets.UTF_8));
